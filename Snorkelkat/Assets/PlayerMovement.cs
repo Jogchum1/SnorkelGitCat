@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
-    private float speed = 8f;
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
     private float hangCounter;
@@ -15,8 +14,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     
-    public float hangTime = .2f;
 
+    public float speed = 8f;
+    public float hangTime = .2f;
     public float jumpBuggerLenght = .1f;
     public Transform camTarget;
     public float aheadAmount, aheadSpeed;
