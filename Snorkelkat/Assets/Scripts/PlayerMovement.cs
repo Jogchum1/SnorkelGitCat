@@ -18,10 +18,11 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 8f;
     public float hangTime = .2f;
     public float jumpBuggerLenght = .1f;
+    [Header("Camera")]
     public Transform camTarget;
     public float aheadAmount, aheadSpeed;
 
-
+    
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
