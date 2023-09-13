@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Hantime
-        if (IsGrounded())
+        if (IsGrounded() && rb.velocity.y == 0)
         {
             hangCounter = hangTime;
         }
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         {
             hangCounter -= Time.deltaTime;
         }
-
+        
         //JumpBuffer
         if (Input.GetButtonDown("Jump"))
         {
