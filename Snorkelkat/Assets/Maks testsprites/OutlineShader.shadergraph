@@ -25,6 +25,9 @@
         },
         {
             "m_Id": "031d71ebab964e6dbdf90f59d846da3d"
+        },
+        {
+            "m_Id": "5d9a7b2e1e024f60aab644646127aecf"
         }
     ],
     "m_GroupDatas": [],
@@ -270,6 +273,41 @@
     },
     "m_Labels": [],
     "m_Space": 0
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.CustomFunctionNode",
+    "m_ObjectId": "5d9a7b2e1e024f60aab644646127aecf",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "GetCrossSampleUVs (Custom Function)",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -475.0,
+            "y": 35.0,
+            "width": 208.0,
+            "height": 245.0
+        }
+    },
+    "m_Slots": [],
+    "synonyms": [
+        "code",
+        "HLSL"
+    ],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SourceType": 0,
+    "m_FunctionName": "GetCrossSampleUVs",
+    "m_FunctionSource": "27387bbecdc3c074fba1f6b6fdfee7f5",
+    "m_FunctionBody": "void GetCrossSampleUVs_float(float4 UV, float2 TexelSize,\r\n\tfloat OffsetMultiplier, out float2 UVOriginal,\r\n\tout float2 UVTopRight, out float2 UVBottomLeft,\r\n\tout float2 UVTopLeft, out float2 UVBottomRight) \r\n{\r\nUVOriginal = UV;\r\nUVTopRight = UV.xy + float2(TexelSize.x, TexelSize.y) * OffsetMultiplier;\r\nUVBottomLeft = UV.xy - float2(TexelSize.x, TexelSize.y) * OffsetMultiplier;\r\nUVTopLeft = UV.xy + float2(-TexelSize.x * OffsetMultiplier, TexelSize.y * OffsetMultiplier);\r\nUVBottomRight = UV.xy + float2(TexelSize.x * OffsetMultiplier, -TexelSize.y * OffsetMultiplier);\r\n}"
 }
 
 {
