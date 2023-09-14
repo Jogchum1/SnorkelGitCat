@@ -31,11 +31,11 @@ public class PlayerCombat : MonoBehaviour, IDamageable
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
             }
-            //if (Input.GetMouseButtonDown(1))
-            //{
-            //    Shoot();
-            //    nextAttackTime = Time.time + 1f / attackRate;
-            //}
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            Shoot();
+            nextAttackTime = Time.time + 1f / attackRate;
         }
     }
 
@@ -51,7 +51,8 @@ public class PlayerCombat : MonoBehaviour, IDamageable
     }
     public void Shoot()
     {
-        Instantiate(bullet);
+        GameObject tmpBullet;
+        tmpBullet = Instantiate(bullet, gameObject.transform.position, gameObject.transform.rotation);
     }
 
     public void TakeDamage(int damage)

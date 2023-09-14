@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform target;
+    public float moveSpeed;
+    public Vector3 offset;
 
     // Start is called before the first frame update
     void Start()
@@ -13,8 +15,11 @@ public class CameraController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        gameObject.transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
+        Vector3 desiredPosition = target.position + offset;
+        Vector3 smoothPosition = Vector3.Lerp(transform.position, desiredPosition, moveSpeed * Time.deltaTime);
+        transform.position = smoothPosition;
+        //transform.LookAt(target);
     }
 }
