@@ -20,9 +20,12 @@ public class PlayerInteract : MonoBehaviour
         foreach (Collider2D npc in interactablesInRange)
         {
             Debug.Log(npc.name);
-            if (Input.GetKeyDown(KeyCode.E))
+            if(npc.GetComponent<NPCDialogue>() != null)
             {
-                npc.GetComponent<IInteractable>().Interact();
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    npc.GetComponent<IInteractable>().Interact();
+                }
             }
         }
     }
