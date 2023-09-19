@@ -2446,6 +2446,16 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 680922135}
+    - target: {fileID: 2838033076956798533, guid: c0634b8509e6f7d4a8ae23c7aef0620b,
+        type: 3}
+      propertyPath: attackRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2838033076956798533, guid: c0634b8509e6f7d4a8ae23c7aef0620b,
+        type: 3}
+      propertyPath: attackRange
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2838033076956798591, guid: c0634b8509e6f7d4a8ae23c7aef0620b,
         type: 3}
       propertyPath: m_Name
@@ -2454,7 +2464,7 @@ PrefabInstance:
     - target: {fileID: 2838033076956798591, guid: c0634b8509e6f7d4a8ae23c7aef0620b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0634b8509e6f7d4a8ae23c7aef0620b, type: 3}
