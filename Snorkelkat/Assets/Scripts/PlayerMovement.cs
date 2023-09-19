@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
+
     public float jumpingPower = 16f;
     private bool isFacingRight = true;
     public float hangCounter;
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+
 
     public int maxJumps = 2;
     private int jumpsLeft;
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
+
 
         ////Big jump
         //if (jumpBufferCount >= 0 && hangCounter > 0f && jumpsLeft > 0)
@@ -82,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         {
             hangCounter -= Time.deltaTime;
         }
-        
+
         //JumpBuffer
         if (Input.GetButtonDown("Jump"))
         {
@@ -92,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpBufferCount -= Time.deltaTime;
         }
+
 
         Flip();
 
@@ -117,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
             isFacingRight = !isFacingRight;
+
             transform.Rotate(0f, 180f, 0f);
             aheadAmount = -aheadAmount;
         }

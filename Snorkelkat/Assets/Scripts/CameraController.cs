@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform target;
+
     public float moveSpeed;
     public Vector3 offset;
 
@@ -15,6 +16,7 @@ public class CameraController : MonoBehaviour
     }
 
     // Update is called once per frame
+
     void LateUpdate()
     {
         Vector3 desiredPosition = target.position + offset;
