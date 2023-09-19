@@ -15,6 +15,8 @@ public class PlayerCombat : MonoBehaviour, IDamageable
     public LayerMask enemyLayers;
 
     public GameObject bullet;
+    public GameObject lastDoor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,12 +59,19 @@ public class PlayerCombat : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("ouch, im the player and im hurt :(");
+        Debug.Log("Played damaged");
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
     public void Die()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Player died");
+        gameObject.transform.position = lastDoor.transform.position;
+
     }
 
-   
+
 }
