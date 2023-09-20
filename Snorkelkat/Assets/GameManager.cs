@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     {
         playerActive = !playerActive;
         player.GetComponent<PlayerMovement>().enabled = playerActive;
+    }
+
+    public void StopPlayerVelocity()
+    {
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
     }
 }
