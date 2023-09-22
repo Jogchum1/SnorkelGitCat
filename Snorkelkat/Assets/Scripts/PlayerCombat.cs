@@ -15,12 +15,14 @@ public class PlayerCombat : MonoBehaviour, IDamageable
     public LayerMask enemyLayers;
 
     public GameObject bullet;
+    public GameObject sword;
     public GameObject lastDoor;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        sword.SetActive(false);
     }
 
     // Update is called once per frame
@@ -43,6 +45,8 @@ public class PlayerCombat : MonoBehaviour, IDamageable
 
     public void Attack()
     {
+        sword.SetActive(true);
+        StartCoroutine("ToggleSword");
         Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayers);
         foreach (Collider2D enemy in enemiesInRange)
         {
@@ -71,6 +75,12 @@ public class PlayerCombat : MonoBehaviour, IDamageable
         Debug.Log("Player died");
         gameObject.transform.position = lastDoor.transform.position;
 
+    }
+
+    private IEnumerator ToggleSword()
+    {
+        yield return new WaitForSeconds(.1f);
+        sword.SetActive(false);
     }
 
 
