@@ -6,7 +6,7 @@ public class PlayerInteract : MonoBehaviour
 {
     public float interactRange = 1f;
     public LayerMask interactLayers;
-
+    public bool isTalking = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +22,17 @@ public class PlayerInteract : MonoBehaviour
             Debug.Log(npc.name);
             if(npc.GetComponent<NPCDialogue>() != null)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E) && isTalking == false)
                 {
+                    isTalking = true;
                     npc.GetComponent<IInteractable>().Interact();
                 }
             }
+        }
+
+        if(interactablesInRange.Length == 0)
+        {
+            isTalking = false;
         }
     }
 }
