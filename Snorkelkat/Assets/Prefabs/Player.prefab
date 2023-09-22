@@ -245,9 +245,10 @@ GameObject:
   - component: {fileID: 8607489187868692276}
   - component: {fileID: 8607489187868692299}
   - component: {fileID: 8607489187868692297}
+  - component: {fileID: 8210986068061031961}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -330,11 +331,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 027663b28f7657f49987548e712891f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpingPower: 16
+  hangCounter: 0
+  jumpBufferCount: 0
   rb: {fileID: 8607489187868692276}
   groundCheck: {fileID: 8607489187868692278}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  maxJumps: 2
   speed: 8
   hangTime: 0.2
   jumpBuggerLenght: 0.1
@@ -360,4 +365,21 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
-  bullet: {fileID: 5518209948501062304, guid: 57a10744948a0fe47b461ead6eabfcc6, type: 3}
+  bullet: {fileID: 7609740630238738366, guid: 57a10744948a0fe47b461ead6eabfcc6, type: 3}
+  lastDoor: {fileID: 0}
+--- !u!114 &8210986068061031961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8607489187868692277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8eceeaf5a12f6c4abddb64aa5e80444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactRange: 1
+  interactLayers:
+    serializedVersion: 2
+    m_Bits: 256
