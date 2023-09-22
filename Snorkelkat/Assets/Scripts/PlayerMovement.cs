@@ -16,8 +16,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
 
-    public int maxJumps = 2;
+    public int maxJumps = 1;
     private int jumpsLeft;
+    private bool moreJumps = false;
 
     public float speed = 8f;
     public float hangTime = .2f;
@@ -34,7 +35,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-
+        if (maxJumps > 1)
+            moreJumps = true;
 
         ////Big jump
         //if (jumpBufferCount >= 0 && hangCounter > 0f && jumpsLeft > 0)
@@ -59,14 +61,14 @@ public class PlayerMovement : MonoBehaviour
                 jumpBufferCount = jumpBuggerLenght;
                 jumpsLeft -= 1;
             }
-            else
+            else if(IsGrounded() || moreJumps == true)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
                 jumpsLeft -= 1;
             }
 
             //Small jump
-            if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+            if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f && hangCounter > 0f)
             {
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
                 jumpBufferCount = 0;
