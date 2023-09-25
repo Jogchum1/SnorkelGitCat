@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform camTarget;
     public float aheadAmount, aheadSpeed;
 
+    public float groundCheckRange = 0.2f;
+
     private void Start()
     {
         jumpsLeft = maxJumps; 
@@ -78,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         
         
         //Hantime
-        if (IsGrounded() && rb.velocity.y == 0)
+        if (IsGrounded() && rb.velocity.y <= 0.1)
         {
             hangCounter = hangTime;
             jumpsLeft = maxJumps;  
@@ -115,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, groundCheckRange, groundLayer);
     }
 
     private void Flip()
@@ -127,5 +129,10 @@ public class PlayerMovement : MonoBehaviour
             transform.Rotate(0f, 180f, 0f);
             aheadAmount = -aheadAmount;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(groundCheck.transform.position, groundCheckRange);
     }
 }
