@@ -9,3 +9,35 @@ My first ever Yarn script in Unity!
 
 Anyway, time to get writing!
 ===
+title: eersteblokje
+---
+Hey there! Could I ask you something?
+
+-> Yeah
+-> Yeah ofcourse
+-> Yes option there
+
+I’ve been playing hide and seek with my brother for 3 days now but I’m starting to think I’ve lost him. 
+He’s always been better at jumping and climbing than me so I’m guessing I’m not even gonna be able to find him anytime soon.
+Could you help me out here?
+
+-> Ofcourse
+-> I’m a big fan of this branching dialogue
+-> Yeah!
+
+Thank u so much! He looks a lot like me, and I’m guessing he’s somewhere upwards since he’s a big jumper. 
+===
+title: tweedeblokje
+---
+Hello stranger
+
+-> Hi, your sibling sent me to get you
+-> Heya, u lost at hide and seek
+
+Damn… oh well it was fun while it lasted!
+
+-> Let’s go!
+-> Follow me!
+
+We are going NOWHERE this playtest is over, thank you for playing!
+===

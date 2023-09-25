@@ -19,7 +19,7 @@ public class PlayerInteract : MonoBehaviour
         Collider2D[] interactablesInRange = Physics2D.OverlapCircleAll(transform.position, interactRange, interactLayers);
         foreach (Collider2D npc in interactablesInRange)
         {
-            Debug.Log(npc.name);
+            //Debug.Log(npc.name);
             if(npc.GetComponent<NPCDialogue>() != null)
             {
                 if (Input.GetKeyDown(KeyCode.E) && isTalking == false)
