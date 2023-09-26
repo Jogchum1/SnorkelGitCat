@@ -50,7 +50,7 @@ public class PlayerCombat : MonoBehaviour, IDamageable
         Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayers);
         foreach (Collider2D enemy in enemiesInRange)
         {
-            Debug.Log(enemy.name);
+            //Debug.Log(enemy.name);
             enemy.GetComponent<IDamageable>().TakeDamage(damageAmount);
         }
 
