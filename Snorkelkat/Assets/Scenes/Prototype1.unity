@@ -391,7 +391,7 @@ PrefabInstance:
     - target: {fileID: 8607489187868692299, guid: a5a359b7fcb7c9a49b57689e3a1b95b3,
         type: 3}
       propertyPath: hangTime
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8607489187868692299, guid: a5a359b7fcb7c9a49b57689e3a1b95b3,
         type: 3}
@@ -407,6 +407,11 @@ PrefabInstance:
         type: 3}
       propertyPath: jumpingPower
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607489187868692299, guid: a5a359b7fcb7c9a49b57689e3a1b95b3,
+        type: 3}
+      propertyPath: jumpBuggerLenght
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5a359b7fcb7c9a49b57689e3a1b95b3, type: 3}

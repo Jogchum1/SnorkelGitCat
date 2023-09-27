@@ -17,12 +17,12 @@ public class PlayerMovement : MonoBehaviour
 
 
     public int maxJumps = 1;
-    private int jumpsLeft;
+    public int jumpsLeft;
     private bool moreJumps = false;
 
     public float speed = 8f;
     public float hangTime = .2f;
-    public float jumpBuggerLenght = .1f;
+    public float jumpBufferLenght = .1f;
     [Header("Camera")]
     public Transform camTarget;
     public float aheadAmount, aheadSpeed;
@@ -55,31 +55,39 @@ public class PlayerMovement : MonoBehaviour
         //    jumpBufferCount = 0;
         //}
 
-        if(jumpsLeft > 0 && Input.GetButtonDown("Jump"))
-        {
-            if (jumpBufferCount >= 0 && hangCounter > 0f )
-            {
-                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-                jumpBufferCount = jumpBuggerLenght;
-                jumpsLeft -= 1;
-            }
-            else if(IsGrounded() || moreJumps == true)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-                jumpsLeft -= 1;
-            }
 
-            //Small jump
-            if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f && hangCounter > 0f)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-                jumpBufferCount = 0;
-            }
+        if (jumpBufferCount >= 0 && hangCounter > 0f && jumpsLeft > 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            jumpBufferCount = 0;
+            jumpsLeft -= 1;
+        } else if (jumpsLeft > 0 && Input.GetButtonDown("Jump") && hangCounter != hangTime)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            jumpBufferCount = 0;
+            jumpsLeft -= 1;
+        }
+        //else if(IsGrounded() || moreJumps == true)
+        //{
+        //    if (Input.GetButtonDown("Jump"))
+        //    {
+        //        rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+        //        jumpsLeft -= 1;
+        //    }
+        //}
+
+        //Small jump
+        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            jumpBufferCount = 0;
         }
 
-        
-        
-        //Hantime
+
+
+
+
+        //Hangtime
         if (IsGrounded() && rb.velocity.y <= 0.1)
         {
             hangCounter = hangTime;
@@ -93,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
         //JumpBuffer
         if (Input.GetButtonDown("Jump"))
         {
-            jumpBufferCount = jumpBuggerLenght;
+            jumpBufferCount = jumpBufferLenght;
         }
         else
         {
