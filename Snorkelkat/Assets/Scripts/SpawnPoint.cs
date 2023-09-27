@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject enemy;
 
-    // Update is called once per frame
-    void Update()
+    public void SpawnEnemies()
     {
-        
+        GameObject tmpEnemy = Instantiate(enemy);
     }
 }

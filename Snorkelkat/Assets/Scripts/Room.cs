@@ -17,4 +17,12 @@ public class Room : MonoBehaviour
     {
         
     }
+
+    public void InitializeEnemies()
+    {
+        foreach (SpawnPoint enemySpawn in spawnPoints)
+        {
+            enemySpawn.SpawnEnemies();
+        }
+    }
 }
