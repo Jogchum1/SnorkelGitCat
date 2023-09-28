@@ -18,6 +18,11 @@ public class Room : MonoBehaviour
         
     }
 
+    public void OnRoomEnter()
+    {
+        InitializeEnemies();
+    }
+
     public void InitializeEnemies()
     {
         foreach (SpawnPoint enemySpawn in spawnPoints)
